@@ -1,0 +1,19 @@
+[package]
+name = "rpios"
+version = "0.0.0"
+authors = ["dearfl <i@flr.me>"]
+edition = "2024"
+
+[profile.release]
+lto = true
+
+[features]
+default = [ "bsp_rpi4" ]
+bsp_rpi3 = []
+bsp_rpi4 = []
+
+[[bin]]
+name = "kernel"
+path = "src/main.rs"
+
+[dependencies]
