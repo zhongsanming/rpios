@@ -88,12 +88,14 @@
             --iex="file ${kernel}/bin/kernel" \
             --iex="target remote localhost:1234" \
             --iex="layout src" \
+            --iex="b _start_rust" \
           '';
           objdump = pkgs.writeShellScriptBin "objdump" ''
             ${pkgs.cargo-binutils}/bin/rust-objdump \
             --disassemble  \
             --demangle \
             --section .text \
+            --section .rodata \
             ${kernel}/bin/kernel
           '';
         };
